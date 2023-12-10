@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('no_hp', 25);
             $table->string('kode_pos', 5);
             $table->tinyInteger('role');
-            $table->enum('status', ['Aktif', 'Tidak Aktif']);
+            $table->enum('status', ['Aktif', 'Tidak Aktif'])->dafault('Aktif');
             $table->timestamps();
         });
     }
