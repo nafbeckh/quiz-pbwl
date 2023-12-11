@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\GolonganController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,4 +24,11 @@ Route::group(['middleware' => 'guest'], function () {
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+    Route::get('/golongan', [GolonganController::class, 'index'])->name('golongan');
+    Route::get('/golongan/create', [GolonganController::class, 'create'])->name('golongan.create');
+    Route::post('/golongan/create', [GolonganController::class, 'store']);
+    Route::get('/golongan/edit/{id}', [GolonganController::class, 'edit'])->name('golongan.edit');
+    Route::put('/golongan/edit/{id}', [GolonganController::class, 'update']);
+    Route::delete('/golongan/delete/{id}', [GolonganController::class, 'destroy'])->name('golongan.delete');
 });
