@@ -5,7 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
-  <title>Home - {{ config('app.name') }}</title>
+  <title>{{ $title }} - {{ config('app.name') }}</title>
+  @stack('css')
   <style>
     body {
       background-color: #e8e8e8;
@@ -23,13 +24,13 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a class="nav-link active" href="#">Home</a>
+            <a class="nav-link {{ $title == 'Home' ? 'active' : '' }}" href="{{ route('home') }}">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">User</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Golongan</a>
+            <a class="nav-link {{ $title == 'Golongan' ? 'active' : '' }}" href="{{ route('golongan') }}">Golongan</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Pelanggan</a>
@@ -47,13 +48,7 @@
   </nav>
 
   <main class="py-4">
-    <div class="container">
-      <div class="card">
-        <div class="card-body">
-          @yield('content')
-        </div>
-      </div>
-    </div>
+    @yield('content')
   </main>
 
   <footer class="bg-light text-center py-2 fixed-bottom">
@@ -67,6 +62,8 @@
   </form>
 
   <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+  @stack('js')
+
 </body>
 
 </html>
