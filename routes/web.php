@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\GolonganController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,4 +32,11 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/golongan/edit/{id}', [GolonganController::class, 'edit'])->name('golongan.edit');
     Route::put('/golongan/edit/{id}', [GolonganController::class, 'update']);
     Route::delete('/golongan/delete/{id}', [GolonganController::class, 'destroy'])->name('golongan.delete');
+
+    Route::get('/user', [UserController::class, 'index'])->name('user');
+    Route::get('/user/create', [UserController::class, 'create'])->name('user.create');
+    Route::post('/user/create', [UserController::class, 'store']);
+    Route::get('/user/edit/{id}', [UserController::class, 'edit'])->name('user.edit');
+    Route::put('/user/edit/{id}', [UserController::class, 'update']);
+    Route::delete('/user/delete/{id}', [UserController::class, 'destroy'])->name('user.delete');
 });
