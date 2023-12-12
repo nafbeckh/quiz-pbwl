@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class PelangganRequest extends FormRequest
+class PelangganUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,7 +23,6 @@ class PelangganRequest extends FormRequest
     {
         return [
             'id_gol' => 'required',
-            'no_pelanggan' => 'required|max:20',
             'nama' => 'required|max:50',
             'alamat' => 'required',
             'no_hp' => 'required|max:16',

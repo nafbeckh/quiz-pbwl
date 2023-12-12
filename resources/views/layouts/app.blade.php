@@ -27,13 +27,13 @@
             <a class="nav-link {{ $title == 'Home' ? 'active' : '' }}" href="{{ route('home') }}">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">User</a>
+            <a class="nav-link {{ $title == 'User' ? 'active' : '' }}" href="{{ route('user') }}">User</a>
           </li>
           <li class="nav-item">
             <a class="nav-link {{ $title == 'Golongan' ? 'active' : '' }}" href="{{ route('golongan') }}">Golongan</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Pelanggan</a>
+            <a class="nav-link {{ $title == 'Pelanggan' ? 'active' : '' }}" href="{{ route('pelanggan') }}">Pelanggan</a>
           </li>
           <li class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{ auth()->user()->nama }}</a>
@@ -50,12 +50,6 @@
   <main class="py-4">
     @yield('content')
   </main>
-
-  <footer class="bg-light text-center py-2 fixed-bottom">
-    <div class="container">
-      <p>&copy; 2023 {{ config('app.name') }}. All rights reserved.</p>
-    </div>
-  </footer>
 
   <form action="{{ route('logout') }}" method="POST" id="logout-form" class="d-none">
     @csrf

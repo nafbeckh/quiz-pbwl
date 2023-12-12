@@ -21,8 +21,8 @@ return new class extends Migration
             $table->string('ktp', 50);
             $table->string('seri', 50);
             $table->string('meteran', 11);
-            $table->enum('status', ['Aktif', 'Tidak Aktif']);
             $table->unsignedBigInteger('id_user');
+            $table->enum('status', ['Aktif', 'Tidak Aktif'])->dafault('Aktif');
             $table->foreign('id_gol')->references('id')->on('golongans');
             $table->foreign('id_user')->references('id')->on('users');
             $table->timestamps();
