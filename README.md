@@ -15,3 +15,9 @@ Project ini dibangun menggunakan <a href="https://laravel.com">Laravel</a> untuk
 6. Konfigurasi database di file `.env`
 7. Migrasi database `php artisan migrate --seed`
 8. Jalankan server `php artisan serv`
+
+### Default Login 
+```
+Email: admin@gmail.com
+Password: admin
+```
