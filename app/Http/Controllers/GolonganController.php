@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\GolonganRequest;
 use App\Models\Golongan;
+use App\Models\Pelanggan;
 use Carbon\Carbon;
 use Illuminate\Http\Client\Request;
 
@@ -50,6 +51,11 @@ class GolonganController extends Controller
 
     public function destroy(string $id)
     {
+        $pelanggan = Pelanggan::where('id_gol', $id)->exists();
+        if ($pelanggan) {
+            return false;
+        }
+
         $golongan = Golongan::findOrFail($id)->delete();
         if (!$golongan) {
             return false;

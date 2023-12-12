@@ -50,6 +50,10 @@
         type: "DELETE",
         url: url,
         success: function(result) {
+          if (!result) {
+            alert('Gagal menghapus data')
+          }
+
           location.reload()
         }
       })

@@ -13,9 +13,4 @@ class Golongan extends Model
     protected $fillable = [
         'kode', 'nama'
     ];
-
-    public function pelanggan(): BelongsTo
-    {
-        return $this->belongsTo(Pelanggan::class);
-    }
 }

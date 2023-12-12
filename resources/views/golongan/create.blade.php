@@ -6,7 +6,7 @@
     <div class="card-body">
       <h5>{{ $title }}</h5>
       <div class="col-sm-6">
-        <form class="row g-3 mt-4" action="" method="POST">
+        <form class="row g-3 mt-2" action="" method="POST">
           @csrf
 
           <div class="form-group">
