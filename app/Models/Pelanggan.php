@@ -5,7 +5,7 @@ namespace App\Models;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Pelanggan extends Model
 {
@@ -16,14 +16,14 @@ class Pelanggan extends Model
         'seri', 'meteran', 'status', 'id_user'
     ];
 
-    public function golongan(): HasOne
+    public function golongan(): BelongsTo
     {
-        return $this->hasOne(Golongan::class, 'id', 'id_gol');
+        return $this->belongsTo(Golongan::class, 'id_gol', 'id');
     }
 
-    public function user(): HasOne
+    public function user(): BelongsTo
     {
-        return $this->hasOne(User::class, 'id', 'id_user');
+        return $this->belongsTo(User::class, 'id_user', 'id');
     }
 
     public static function generateNoPelanggan()

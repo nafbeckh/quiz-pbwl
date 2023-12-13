@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
@@ -22,4 +23,9 @@ class User extends Authenticatable
     protected $casts = [
         'password' => 'hashed'
     ];
+
+    public function pelanggan(): HasOne
+    {
+        return $this->hasOne(Pelanggan::class, 'id_user', 'id');
+    }
 }
