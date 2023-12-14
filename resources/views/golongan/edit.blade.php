@@ -7,7 +7,7 @@
       <h5>{{ $title }}</h5>
       <div class="col-sm-6">
         <form class="row g-3 mt-4" action="" method="POST">
-          <input type="hidden" name="_method" value="PUT">
+          @method('PUT')
           @csrf
 
           <div class="form-group">

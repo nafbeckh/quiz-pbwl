@@ -6,9 +6,9 @@
     <div class="card-body">
       <h5>{{ $title }}</h5>
       <form class="mt-4" action="" method="POST">
-        <input type="hidden" name="_method" value="PUT">
-
+        @method('PUT')
         @csrf
+        
         <div class="row">
           <div class="col-sm-6">
             <div class="form-group mb-3">

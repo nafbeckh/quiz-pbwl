@@ -12,6 +12,7 @@
             <div class="form-group mb-3">
               <label for="id_gol" class="form-label">Golongan*</label>
               <select class="form-control @error('id_gol') is-invalid @enderror" name="id_gol" id="id_gol">
+                <option value="">-- Pilih --</option>
                 @foreach($golongans as $golongan)
                 <option value="{{ $golongan->id }}">{{ $golongan->nama }}</option>
                 @endforeach
